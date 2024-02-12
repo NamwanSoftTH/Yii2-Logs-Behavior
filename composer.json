@@ -1,0 +1,24 @@
+{
+  "name": "namwansoft/yii2-logs-behavior",
+  "description": "LogsBehavior For Yii2 Application",
+  "type": "yii2-extension",
+  "keywords": [
+    "yii2",
+    "extension"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "namwansoft",
+      "email": "anusit@nwsoft.dev"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "namwansoft\\LogsBehavior\\": ""
+    }
+  }
+}
