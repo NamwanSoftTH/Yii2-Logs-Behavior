@@ -11,7 +11,7 @@ use yii\helpers\Json;
 class LogsBehavior extends \yii\base\Behavior
 {
 
-    private $exAttr = [];
+    public $exAttr = [];
 
     public function events()
     {
