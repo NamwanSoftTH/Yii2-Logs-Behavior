@@ -1,6 +1,6 @@
 <?php
 
-    $allUser = \yii\helpers\ArrayHelper::map(\common\models\AuthUser::find()->all(), 'id', 'name');
+    $allUser = \yii\helpers\ArrayHelper::map(\common\models\AuthUser::find()->where(['id_company' => Yii::$app->Company->id])->all(), 'id', 'name');
     $form = \yii\widgets\ActiveForm::begin([
         'action'  => ['index'],
         'method'  => 'get',
