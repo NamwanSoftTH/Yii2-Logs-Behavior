@@ -19,7 +19,7 @@
     <?=\yii\helpers\Html::activeDropDownList($model, 'q[user]', ['' => ''] + $allUser, [
     'class'            => "form-select form-select-sm rounded-end-0",
     'data-control'     => "select2",
-    'data-placeholder' => "-" . Yii::t('app', 'Type') . "-",
+    'data-placeholder' => "-" . Yii::t('app', 'User') . "-",
     'data-allow-clear' => "true",
     'data-hide-search' => "true",
     'data-width'       => "150px",
