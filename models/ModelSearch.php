@@ -19,11 +19,11 @@ class ModelSearch extends Model
 
     public function search($params)
     {
-        $query = get_class($this)::find();
+        $query = get_class($this)::find()->alias('tbM')->joinWith('users users');
 
         $dataProvider = new \yii\data\ActiveDataProvider([
             'query'      => $query,
-            'sort'       => ['defaultOrder' => ['id' => SORT_DESC]],
+            'sort'       => ['defaultOrder' => ['tbM.id' => SORT_DESC]],
             'pagination' => [],
         ]);
 
@@ -34,11 +34,14 @@ class ModelSearch extends Model
         }
 
         if ($this->q['event']) {
-            $query->andFilterWhere(['like', 'event', $this->q['event']]);
+            $query->andFilterWhere(['like', 'tbM.event', $this->q['event']]);
+        }
+        if ($this->q['user']) {
+            $query->andFilterWhere(['like', 'users.name', $this->q['user']]);
         }
         $query->andFilterWhere(['OR',
-            ['like', 'change_attributes', $this->q['search']],
-            ['like', 'object', $this->q['search']],
+            ['like', 'tbM.change_attributes', $this->q['search']],
+            ['like', 'tbM.object', $this->q['search']],
         ]);
 
         return $dataProvider;
